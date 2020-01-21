@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace WpfAppIntroduktion.BIZ
 {
@@ -108,21 +109,50 @@ namespace WpfAppIntroduktion.BIZ
 
         public List<string> Delopgave18()
         {
-            int averageNumber = 0;
             List<int> numbers = new List<int>();
 
             for (int i = 0; i < 25; i++)
             {
                 int randomNumber = random.Next(100_000, 1_000_001);
                 numbers.Add(randomNumber);
-
-                averageNumber += randomNumber;
             }
-            averageNumber = (int)numbers.Average();
+            int averageNumber = (int)numbers.Average();
 
             numbers.Sort();
 
-            return new List<string>();
+            List<string> returnString = new List<string>();
+
+            foreach (int number in numbers)
+            {
+                returnString.Add($"{number} - {averageNumber} = {number - averageNumber}");
+            }
+            return returnString;
+        }
+
+        public void Delopgave19(ListBox listBox)
+        {
+            List<int> numbers = new List<int>();
+
+            for (int i = 0; i < 25; i++)
+            {
+                numbers.Add(random.Next(100_000, 1_000_001));
+            }
+            int averageNumber = (int)numbers.Average();
+
+            numbers.Sort();
+
+            foreach (int number in numbers)
+            {
+                ListBoxItem listBoxItem = new ListBoxItem();
+                listBoxItem.Content = $"{number} - {averageNumber} = {number-averageNumber}";
+
+                if (number % 2 == 1)
+                    listBoxItem.Background = Brushes.AliceBlue;
+                else
+                    listBoxItem.Background = Brushes.HotPink;
+
+                listBox.Items.Add(listBoxItem);
+            }
         }
     }
 }

@@ -29,10 +29,10 @@ namespace WpfAppIntroduktion
 
         private void ClearList(ListBox listBox)
         {
-            if (listBox.HasItems)
-            {
-                listBox.ItemsSource = ;
-            }
+            if (listBox.ItemsSource != null)
+                listBox.ItemsSource = null;
+            listBox.Items.Clear();
+            
         }
 
         private void buttonOpg12_Click(object sender, RoutedEventArgs e)
@@ -43,32 +43,44 @@ namespace WpfAppIntroduktion
 
         private void buttonOpg13_Click(object sender, RoutedEventArgs e)
         {
-            listBoxRes.Items.Clear();
+            ClearList(listBoxRes);
             classBIZ.RandomNumbers(listBoxRes);
         }
 
         private void buttonOpg14_Click(object sender, RoutedEventArgs e)
         {
-            listBoxRes.Items.Clear();
+            ClearList(listBoxRes);
             classBIZ.OrderedNumbers(listBoxRes);
         }
 
         private void buttonOpg15_Click(object sender, RoutedEventArgs e)
         {
-            listBoxRes.Items.Clear();
+            ClearList(listBoxRes);
             classBIZ.UnorderedAndOrdered(listBoxRes);
         }
 
         private void buttonOpg16_Click(object sender, RoutedEventArgs e)
         {
-            listBoxRes.Items.Clear();
+            ClearList(listBoxRes);
             classBIZ.AverageNumber(listBoxRes);
         }
 
         private void buttonOpg17_Click(object sender, RoutedEventArgs e)
         {
-            listBoxRes.Items.Clear();
+            ClearList(listBoxRes);
             classBIZ.Delopgave17(listBoxRes);
+        }
+
+        private void buttonOpg18_Click(object sender, RoutedEventArgs e)
+        {
+            ClearList(listBoxRes);
+            listBoxRes.ItemsSource = classBIZ.Delopgave18();
+        }
+
+        private void buttonOpg19_Click(object sender, RoutedEventArgs e)
+        {
+            ClearList(listBoxRes);
+            classBIZ.Delopgave19(listBoxRes);
         }
     }
 }
