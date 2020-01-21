@@ -107,6 +107,7 @@ namespace WpfAppIntroduktion.BIZ
             }
         }
 
+
         public List<string> Delopgave18()
         {
             List<int> numbers = new List<int>();
@@ -153,6 +154,35 @@ namespace WpfAppIntroduktion.BIZ
 
                 listBox.Items.Add(listBoxItem);
             }
+        }
+
+        public void Delopgave110(ListBox listBox)
+        {
+            List<int> numbers = new List<int>();
+
+            for (int i = 0; i < 25; i++)
+            {
+                numbers.Add(random.Next(100_000, 1_000_001));
+            }
+            int averageNumber = (int)numbers.Average();
+
+            numbers.Sort();
+
+            List<ListBoxItem> listItems = new List<ListBoxItem>();
+
+            foreach (int number in numbers)
+            {
+                ListBoxItem listBoxItem = new ListBoxItem();
+                listBoxItem.Content = $"{number} - {averageNumber} = {number - averageNumber}";
+
+                if (number % 2 == 1)
+                    listBoxItem.Background = Brushes.AliceBlue;
+                else
+                    listBoxItem.Background = Brushes.HotPink;
+
+                listItems.Add(listBoxItem);
+            }
+            listBox.ItemsSource = listItems;
         }
     }
 }

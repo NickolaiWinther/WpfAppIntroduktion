@@ -81,12 +81,12 @@
                 Margin="10" 
                 Grid.Row="7" Click="buttonOpg19_Click" />
 
-        <Button x:Name="buttonOpg10"
+        <Button x:Name="buttonOpg110"
                 Content="Opgave 1.10" 
                 HorizontalAlignment="Stretch" 
                 VerticalAlignment="Stretch"
                 Margin="10" 
-                Grid.Row="8" />
+                Grid.Row="8" Click="buttonOpg110_Click" />
         <ListBox x:Name="listBoxRes"
                  Grid.Column="1" 
                  HorizontalAlignment="Stretch" 
